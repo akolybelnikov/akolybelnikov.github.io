@@ -1,4 +1,4 @@
-module ithub.com/akolybelnikov/go-app
+module github.com/akolybelnikov/go-app
 
 go 1.18
 

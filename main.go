@@ -19,7 +19,7 @@ func main() {
 	if err := app.GenerateStaticWebsite(".", &app.Handler{
 		Name:        "Go App",
 		Description: "Go App Example",
-		Resources:   app.GitHubPages("akolybelnikov/go-app"),
+		Resources:   app.GitHubPages("go-app"),
 	}); err != nil {
 		log.Fatal(err)
 	}
