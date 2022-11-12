@@ -1,6 +1,6 @@
 build:
-	GOARCH=wasm GOOS=js go build -o web/app.wasm
-	go build
+	GOARCH=wasm GOOS=js go build -o ./playground/web/app.wasm
+	go build -o ./playground/cmd/playground
 
 run: build
-	./go-app
+	cd playground; ./cmd/playground
