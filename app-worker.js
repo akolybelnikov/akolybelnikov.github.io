@@ -1,8 +1,8 @@
-const cacheName = "app-" + "f4fa0d4deadde104621643c736ba76dd3303f120";
-const resourcesToCache = ["/","/app.css","/app.js","/manifest.webmanifest","/wasm_exec.js","/web/app.wasm","https://storage.googleapis.com/murlok-github/icon-192.png","https://storage.googleapis.com/murlok-github/icon-512.png"];
+const cacheName = "app-" + "ceecc217cad87d5bc66d66365522ad4ef35a454c";
+const resourcesToCache = ["/akolybelnikov/go-app","/akolybelnikov/go-app/app.css","/akolybelnikov/go-app/app.js","/akolybelnikov/go-app/manifest.webmanifest","/akolybelnikov/go-app/wasm_exec.js","/akolybelnikov/go-app/web/app.wasm","https://storage.googleapis.com/murlok-github/icon-192.png","https://storage.googleapis.com/murlok-github/icon-512.png"];
 
 self.addEventListener("install", (event) => {
-  console.log("installing app worker f4fa0d4deadde104621643c736ba76dd3303f120");
+  console.log("installing app worker ceecc217cad87d5bc66d66365522ad4ef35a454c");
 
   event.waitUntil(
     caches
@@ -28,7 +28,7 @@ self.addEventListener("activate", (event) => {
       );
     })
   );
-  console.log("app worker f4fa0d4deadde104621643c736ba76dd3303f120 is activated");
+  console.log("app worker ceecc217cad87d5bc66d66365522ad4ef35a454c is activated");
 });
 
 self.addEventListener("fetch", (event) => {
