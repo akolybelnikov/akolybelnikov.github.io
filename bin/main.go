@@ -76,7 +76,7 @@ func runLocal(ctx context.Context, h http.Handler) {
 
 func generateGitHubPages(_ context.Context, h *app.Handler) {
 	h.Resources = app.GitHubPages("playground")
-	if err := app.GenerateStaticWebsite(".", h, "/"); err != nil {
+	if err := app.GenerateStaticWebsite(".", h, "/playground"); err != nil {
 		log.Fatal(err)
 	}
 }
