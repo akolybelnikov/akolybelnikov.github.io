@@ -26,10 +26,17 @@ func (b *banner) Render() app.UI {
 					app.Button().
 						Text("Format").
 						OnClick(b.handleFormat),
+					app.Button().
+						Text("Run").
+						OnClick(b.handleRun),
 				),
 		)
 }
 
-func (b *banner) handleFormat(ctx app.Context, e app.Event) {
+func (b *banner) handleFormat(ctx app.Context, _ app.Event) {
 	ctx.NewAction("format")
+}
+
+func (b *banner) handleRun(ctx app.Context, _ app.Event) {
+	ctx.NewAction("run")
 }

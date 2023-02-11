@@ -22,12 +22,11 @@ func (o *output) Render() app.UI {
 }
 
 func (o *output) OnMount(ctx app.Context) {
+	o.lines = make([]*line, 0)
 	ctx.Handle("output", o.handleOutput)
 }
 
 func (o *output) handleOutput(_ app.Context, a app.Action) {
-	o.lines = make([]*line, 0)
+	o.lines = o.lines[:0]
 	o.lines = append(o.lines, a.Value.([]*line)...)
-	//o.JSValue().Set("innerHTML", a.Value.(string))
-	//o.JSValue().Set("className", a.Tags.Get("type"))
 }

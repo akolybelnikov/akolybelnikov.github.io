@@ -41,6 +41,7 @@ func (t *textarea) Render() app.UI {
 
 func (t *textarea) OnMount(ctx app.Context) {
 	ctx.Handle("format", t.handleFormat)
+	ctx.Handle("run", t.handleRun)
 	t.content = defaultContent
 }
 
@@ -61,4 +62,9 @@ func (t *textarea) handleFormat(ctx app.Context, _ app.Action) {
 	t.content = string(source)
 	t.JSValue().Set("value", t.content)
 	ctx.NewActionWithValue("output", []*line{})
+}
+
+func (t *textarea) handleRun(_ app.Context, _ app.Action) {
+	//TODO
+	panic("not implemented")
 }
