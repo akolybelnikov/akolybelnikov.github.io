@@ -1,8 +1,8 @@
-const cacheName = "app-" + "06b249d887ce535dfbd4f22a8cc0df76ba3356e4";
-const resourcesToCache = ["/playground","/playground/app.css","/playground/app.js","/playground/manifest.webmanifest","/playground/wasm_exec.js","/playground/web/app.wasm","/playground/web/logo.png"];
+const cacheName = "app-" + "2a7fc8adbda3b0a6fdb149bd42a6cb29496f965a";
+const resourcesToCache = ["/playground","/playground/app.css","/playground/app.js","/playground/manifest.webmanifest","/playground/wasm_exec.js","/playground/web/app.wasm","/playground/web/logo.png","/playground/web/playground.css"];
 
 self.addEventListener("install", (event) => {
-  console.log("installing app worker 06b249d887ce535dfbd4f22a8cc0df76ba3356e4");
+  console.log("installing app worker 2a7fc8adbda3b0a6fdb149bd42a6cb29496f965a");
 
   event.waitUntil(
     caches
@@ -28,7 +28,7 @@ self.addEventListener("activate", (event) => {
       );
     })
   );
-  console.log("app worker 06b249d887ce535dfbd4f22a8cc0df76ba3356e4 is activated");
+  console.log("app worker 2a7fc8adbda3b0a6fdb149bd42a6cb29496f965a is activated");
 });
 
 self.addEventListener("fetch", (event) => {
