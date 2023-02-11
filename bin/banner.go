@@ -24,11 +24,11 @@ func (b *banner) Render() app.UI {
 				ID("controls").
 				Body(
 					app.Button().
-						Text("Format").
-						OnClick(b.handleFormat),
-					app.Button().
 						Text("Run").
 						OnClick(b.handleRun),
+					app.Button().
+						Text("Format").
+						OnClick(b.handleFormat),
 				),
 		)
 }
