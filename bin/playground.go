@@ -7,7 +7,22 @@ type playground struct {
 }
 
 func (p *playground) Render() app.UI {
-	return app.Div().Body(
-		app.H1().Text("Hello, playground!"),
-	)
+	return app.Main().
+		Body(
+			app.Div().
+				ID("banner").
+				Body(&banner{}),
+			app.Div().
+				ID("content").
+				Class("box").
+				Body(app.Div().
+					ID("input").
+					Class("box").
+					Class("yellow").
+					Body(&textarea{})),
+			app.Div().
+				ID("output").
+				Class("box").
+				Body(&output{}),
+		)
 }

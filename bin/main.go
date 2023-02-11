@@ -30,7 +30,11 @@ func main() {
 		Icon: app.Icon{
 			Default: "/web/logo.png",
 		},
-		Name:  "GopherJS Playground",
+		LoadingLabel: "GopherJS Playground is a place where users can explore GopherJS.",
+		Name:         "GopherJS Playground",
+		Styles: []string{
+			"/web/playground.css",
+		},
 		Title: "GopherJS Playground",
 	}
 
