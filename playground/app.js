@@ -5,7 +5,7 @@ var goappNav = function () {};
 var goappOnUpdate = function () {};
 var goappOnAppInstallChange = function () {};
 
-const goappEnv = {"GOAPP_INTERNAL_URLS":"null","GOAPP_ROOT_PREFIX":"/playground","GOAPP_STATIC_RESOURCES_URL":"/playground","GOAPP_VERSION":"0c54a51a74ca4545ad5a06357eadc92976e1638e"};
+const goappEnv = {"GOAPP_INTERNAL_URLS":"null","GOAPP_ROOT_PREFIX":"/playground","GOAPP_STATIC_RESOURCES_URL":"/playground","GOAPP_VERSION":"e6064aae37589c3f6d805f0b2b9d18b517fb3ebc"};
 const goappLoadingLabel = "GopherJS Playground is a place where users can explore GopherJS.";
 const goappWasmContentLengthHeader = "";
 

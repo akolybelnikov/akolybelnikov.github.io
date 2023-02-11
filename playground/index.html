@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="author" content>
-<meta name="description" content="GopherJS Playground is a place where users can explore GopherJS.">
-<meta content name="keywords">
+<meta content="GopherJS Playground is a place where users can explore GopherJS." name="description">
+<meta name="keywords" content>
 <meta name="theme-color" content="#2d2c2c">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, viewport-fit=cover">
-<meta content="http://127.0.0.1:54300/" property="og:url">
+<meta property="og:url" content="http://127.0.0.1:65114/">
 <meta property="og:title" content="GopherJS Playground">
 <meta property="og:description" content="GopherJS Playground is a place where users can explore GopherJS.">
 <meta property="og:type" content="website">
@@ -15,9 +15,9 @@
 <title>
 GopherJS Playground
 </title>
-<link rel="icon" href="/playground/web/logo.png">
+<link href="/playground/web/logo.png" rel="icon">
 <link rel="apple-touch-icon" href="/playground/web/logo.png">
-<link rel="manifest" href="/playground/manifest.webmanifest">
+<link href="/playground/manifest.webmanifest" rel="manifest">
 <link type="text/css" rel="stylesheet" href="/playground/app.css">
 <script defer="true" src="/playground/wasm_exec.js"></script>
 <script defer="true" src="/playground/app.js"></script>
@@ -25,8 +25,8 @@ GopherJS Playground
 </head>
 <body>
 <div>
-<aside class="goapp-app-info" id="app-wasm-loader">
-<img class="goapp-logo goapp-spin" src="/playground/web/logo.png" id="app-wasm-loader-icon">
+<aside id="app-wasm-loader" class="goapp-app-info">
+<img id="app-wasm-loader-icon" class="goapp-logo goapp-spin" src="/playground/web/logo.png">
 <p id="app-wasm-loader-label" class="goapp-label">
 GopherJS Playground is a place where users can explore GopherJS.
 </p>
@@ -45,18 +45,21 @@ playground
 <button>
 Format
 </button>
+<button>
+Run
+</button>
 </span>
 </div>
 </div>
 <div id="content" class="box">
-<div id="input" class="box yellow">
+<div class="box yellow" id="input">
 <textarea id="code" autofocus="true" autocomplete="false" autocorrect="false" autocapitalize="false" spellcheck="false">
 
 </textarea>
 </div>
 </div>
 <div id="output" class="box">
-<div></div>
+<p></p>
 </div>
 </main>
 </div>
