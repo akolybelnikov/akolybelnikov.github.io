@@ -14,5 +14,5 @@ clean:
 	@go clean ./...
 	@-rm ./playground/playground
 
-serve:
+serve: github
 	@cd playground; gopherjs serve

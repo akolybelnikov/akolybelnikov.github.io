@@ -1,15 +1,15 @@
 {
-  "short_name": "Go App",
-  "name": "Go App",
-  "description": "Go App Example",
+  "short_name": "GopherJS Playground",
+  "name": "GopherJS Playground",
+  "description": "GopherJS Playground is a place where users can explore GopherJS.",
   "icons": [
     {
-      "src": "https://storage.googleapis.com/murlok-github/icon-192.png",
+      "src": "/playground/web/logo.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "https://storage.googleapis.com/murlok-github/icon-512.png",
+      "src": "",
       "type": "image/png",
       "sizes": "512x512"
     }

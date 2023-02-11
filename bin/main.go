@@ -13,21 +13,8 @@ import (
 	"syscall"
 )
 
-type goApp struct {
-	Name string
-	app.Compo
-}
-
-func (g *goApp) OnPreRender(_ app.Context) {
-	g.Name = "Playground"
-}
-
-func (g *goApp) Render() app.UI {
-	return app.H1().Text(fmt.Sprintf("%s created with go-app", g.Name))
-}
-
 func main() {
-	c := goApp{}
+	c := playground{}
 	app.Route("/", &c)
 	app.RunWhenOnBrowser()
 
@@ -39,9 +26,12 @@ func main() {
 	defer exit()
 
 	h := &app.Handler{
-		Name:        "Go App",
-		Description: "Go App Example",
-		Resources:   app.GitHubPages("playground"),
+		Description: "GopherJS Playground is a place where users can explore GopherJS.",
+		Icon: app.Icon{
+			Default: "/web/logo.png",
+		},
+		Name:  "GopherJS Playground",
+		Title: "GopherJS Playground",
 	}
 
 	cli.Register("local").
@@ -56,9 +46,7 @@ func main() {
 	case "local":
 		runLocal(ctx, h)
 	case "github":
-		if err := app.GenerateStaticWebsite(".", h, "/"); err != nil {
-			log.Fatal(err)
-		}
+		generateGitHubPages(ctx, h)
 	}
 }
 
@@ -79,6 +67,13 @@ func runLocal(ctx context.Context, h http.Handler) {
 
 	if err := s.ListenAndServe(); err != nil {
 		panic(err)
+	}
+}
+
+func generateGitHubPages(_ context.Context, h *app.Handler) {
+	h.Resources = app.GitHubPages("playground")
+	if err := app.GenerateStaticWebsite(".", h, "/"); err != nil {
+		log.Fatal(err)
 	}
 }
 
