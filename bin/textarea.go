@@ -3,7 +3,6 @@ package main
 import (
 	"github.com/maxence-charriere/go-app/v9/pkg/app"
 	"go/format"
-	"go/scanner"
 )
 
 const (
@@ -48,14 +47,7 @@ func (t *textarea) OnMount(ctx app.Context) {
 func (t *textarea) handleFormat(ctx app.Context, _ app.Action) {
 	source, err := format.Source([]byte(t.content))
 	if err != nil {
-		errLines := make([]*line, 0)
-		if list, ok := err.(scanner.ErrorList); ok {
-			for _, e := range list {
-				errLines = append(errLines, &line{content: e.Error(), kind: "error"})
-			}
-		} else {
-			errLines = append(errLines, &line{content: err.Error(), kind: "error"})
-		}
+		errLines := parseErrors(err)
 		ctx.NewActionWithValue("output", errLines)
 		return
 	}
@@ -64,7 +56,9 @@ func (t *textarea) handleFormat(ctx app.Context, _ app.Action) {
 	ctx.NewActionWithValue("output", []*line{})
 }
 
-func (t *textarea) handleRun(_ app.Context, _ app.Action) {
-	//TODO
-	panic("not implemented")
+func (t *textarea) handleRun(ctx app.Context, _ app.Action) {
+	ctx.NewActionWithValue("compile", cmpAction{
+		code:     t.content,
+		loadOnly: false,
+	})
 }

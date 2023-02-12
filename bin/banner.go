@@ -7,7 +7,12 @@ import (
 
 type banner struct {
 	app.Compo
-	version string
+	version         string
+	updateAvailable bool
+}
+
+func (b *banner) OnAppUpdate(ctx app.Context) {
+	b.updateAvailable = ctx.AppUpdateAvailable() // Reports that an app update is available.
 }
 
 func (b *banner) Render() app.UI {
@@ -29,8 +34,19 @@ func (b *banner) Render() app.UI {
 					app.Button().
 						Text("Format").
 						OnClick(b.handleFormat),
+					// Displays an Update button when an update is available.
+					app.If(b.updateAvailable,
+						app.Button().
+							Text("Update!").
+							OnClick(b.onUpdateClick),
+					),
 				),
 		)
+}
+
+func (b *banner) onUpdateClick(ctx app.Context, _ app.Event) {
+	// Reloads the page to display the modifications.
+	ctx.Reload()
 }
 
 func (b *banner) handleFormat(ctx app.Context, _ app.Event) {

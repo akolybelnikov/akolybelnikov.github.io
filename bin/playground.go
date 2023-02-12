@@ -1,9 +1,17 @@
 package main
 
-import "github.com/maxence-charriere/go-app/v9/pkg/app"
+import (
+	"github.com/maxence-charriere/go-app/v9/pkg/app"
+)
 
 type playground struct {
 	app.Compo
+	cmp *gopherJSCompiler
+}
+
+func (p *playground) OnMount(ctx app.Context) {
+	p.cmp = newGopherJSCompiler(ctx)
+	ctx.Handle("compile", p.cmp.handleCompile)
 }
 
 func (p *playground) Render() app.UI {

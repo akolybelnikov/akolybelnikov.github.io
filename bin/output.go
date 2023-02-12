@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/maxence-charriere/go-app/v9/pkg/app"
+	"go/scanner"
 )
 
 type line struct {
@@ -29,4 +30,16 @@ func (o *output) OnMount(ctx app.Context) {
 func (o *output) handleOutput(_ app.Context, a app.Action) {
 	o.lines = o.lines[:0]
 	o.lines = append(o.lines, a.Value.([]*line)...)
+}
+
+func parseErrors(err error) []*line {
+	errLines := make([]*line, 0)
+	if list, ok := err.(scanner.ErrorList); ok {
+		for _, e := range list {
+			errLines = append(errLines, &line{content: e.Error(), kind: "error"})
+		}
+	} else {
+		errLines = append(errLines, &line{content: err.Error(), kind: "error"})
+	}
+	return errLines
 }
